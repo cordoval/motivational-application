@@ -1,0 +1,17 @@
+# Configuration
+/app/config/parameters.yml
+
+# Dependencies
+/vendor/
+
+# Temporary files
+/app/bootstrap.php.cache
+/app/cache/*
+/app/logs/*
+
+# Assets
+/web/bundles/
+
+# Tests
+/report/
+/app/phpunit.xml
