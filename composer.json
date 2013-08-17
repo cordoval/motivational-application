@@ -7,16 +7,17 @@
         "psr-0": { "": "src/" }
     },
     "require": {
-        "php": ">=5.3.17",
+        "php": ">=5.4.0",
 
-        "symfony/symfony": "~2.3",
+        "symfony/symfony": "2.3.*",
         "twig/twig": "1.*",
         "symfony/monolog-bundle": "2.3.*",
         "sensio/distribution-bundle": "2.3.*",
         "sensio/framework-extra-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "stack/builder": "~1.0@dev",
-        "stack/url-map": "~1.0@dev"
+        "stack/builder": "~1.0",
+        "stack/url-map": "~1.0@dev",
+        "stack/run": "~1.0"
     },
     "scripts": {
         "post-install-cmd": [

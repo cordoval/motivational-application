@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a6910b4fe3f2d57cdb1c6d2ac325db11",
+    "hash": "d3eb8d30ea50480e292a863e8cd80468",
     "packages": [
         {
             "name": "doctrine/common",
@@ -319,7 +319,7 @@
         },
         {
             "name": "stack/builder",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stackphp/builder.git",
@@ -366,6 +366,56 @@
                 "stack"
             ],
             "time": "2013-08-02 13:05:55"
+        },
+        {
+            "name": "stack/run",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stackphp/run.git",
+                "reference": "v1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stackphp/run/zipball/v1.0.0",
+                "reference": "v1.0.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "symfony/http-foundation": "~2.1",
+                "symfony/http-kernel": "~2.1"
+            },
+            "require-dev": {
+                "stack/callable-http-kernel": "~1.0@dev"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Stack/run.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch",
+                    "homepage": "http://wiedler.ch/igor/"
+                }
+            ],
+            "description": "Shortcut function for handling HttpKernel front-controller boilerplate.",
+            "keywords": [
+                "stack"
+            ],
+            "time": "2013-08-14 10:37:45"
         },
         {
             "name": "stack/url-map",
@@ -689,11 +739,10 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "stack/builder": 20,
         "stack/url-map": 20
     },
     "platform": {
-        "php": ">=5.3.17"
+        "php": ">=5.4.0"
     },
     "platform-dev": [
 

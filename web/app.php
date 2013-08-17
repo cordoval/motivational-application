@@ -10,21 +10,19 @@ require_once __DIR__.'/../app/AppKernel.php';
 $app = new AppKernel('prod', false);
 $app->loadClassCache();
 
-// Prevent debug mode to be available on a production server.
-if (!isset($_SERVER['HTTP_CLIENT_IP'])
-    && !isset($_SERVER['HTTP_X_FORWARDED_FOR'])
-    && in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', 'fe80::1', '::1'))
-) {
+$isOnProductionServer = isset($_SERVER['HTTP_CLIENT_IP'])
+    || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
+    || !in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', 'fe80::1', '::1')
+);
+
+if (!$isOnProductionServer) {
     Debug::enable();
-    $debugApplication = new AppKernel('dev', true);
 
     $stack = new Stack\Builder();
-    $stack->push('Stack\UrlMap', array('/debug' => $debugApplication));
+    $stack->push('Stack\UrlMap', array('/dev' => new AppKernel('dev', true)));
+    $stack->push('Stack\UrlMap', array('/test' => new AppKernel('test', true)));
 
     $app = $stack->resolve($app);
 }
 
-$request = Request::createFromGlobals();
-$response = $app->handle($request);
-$response->send();
-$app->terminate($request, $response);
+Stack\run($app);
